@@ -1,3 +1,5 @@
 {
-    "name": "Welcome"
+    "name": "Welcome",
+    "version": "3.0.0",
+    "celeste_version": "3.0.0"
 }
