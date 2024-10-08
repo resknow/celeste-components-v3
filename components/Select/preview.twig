@@ -1,0 +1,10 @@
+<div class="flow">
+    <div x-data="{ selected: 'English' }">
+        <Select name="language" label="Language" x-model="selected" required>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+        </Select>
+        <span class="text-sm text-gray-400" x-text="selected">English</span>
+    </div>
+</div>

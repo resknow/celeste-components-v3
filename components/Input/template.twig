@@ -1,0 +1,30 @@
+<div class="Input">
+    <div class="flex flex-wrap gap-xs">
+        <label :for="id | default(name)" @html="label" />
+        <span
+            @unless="required"
+            class="Input__optional-marker text-xs uppercase text-gray-500 font-normal"
+        >
+            Optional
+        </span>
+    </div>
+    <textarea
+        :id="id | default(name)"
+        :name="name"
+        @attributes
+        @if="type == 'textarea'"
+    />
+    <input
+        :id="id | default(name)"
+        :name="name"
+        :type="type"
+        @attributes
+        @if="type != 'textarea'"
+    />
+</div>
+
+<Style>
+    .Input > * + * {
+        margin-block-start: var(--Input--flow-space, 0.4em);
+    }
+</Style>

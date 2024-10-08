@@ -1,0 +1,9 @@
+<a
+    @if="number"
+    class="FloatingWhatsAppButton"
+    :href="'https://wa.me/' ~ number | replace({ ' ': '' })"
+>
+    <Icon @if="icon_exists('whatsapp')" name="whatsapp" />
+    <span @if="children"><Children /></span>
+    <span @unless="children">WhatsApp Us</span>
+</a>

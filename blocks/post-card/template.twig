@@ -1,0 +1,9 @@
+<BlockWrapper :attrs="attributes" :block="block" :preview="is_preview">
+    <PostCard
+        @if="fields.post_id or fields.query_type == 'auto'"
+        :id="fields.query_type == 'manual' ? fields.post_id : post_id"
+    />
+    <PostCard.Placeholder
+        @if="not fields.post_id and fields.query_type == 'manual'"
+    />
+</BlockWrapper>

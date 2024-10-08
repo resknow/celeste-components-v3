@@ -1,0 +1,63 @@
+<div
+    :x-data="state({ isOpen: isOpen ? 'true' : 'false' })"
+    class="Drawer"
+>
+    {{ slots.trigger | raw }}
+    <Button
+        @html="toggleText"
+        @if="not slots.trigger"
+        x-on:click="isOpen = !isOpen"
+        type="button"
+    />
+    <div
+        :class="{
+            'Drawer__Modal fixed bottom-0 inset-x-0 bg-contrast text-white transition duration-300 ease-in-out z-50 md:left-auto md:h-screen': true,
+            'md:w-64': size == 'sm',
+            'md:w-80': not size or size == 'base',
+            'md:w-96 xl:w-120': size == 'lg',
+            'md:w-120 xl:w-132': size == 'xl',
+        } | cls"
+        x-cloak
+        x-bind:aria-hidden="!isOpen"
+        x-bind:data-state="isOpen ? 'open' : 'closed'"
+        x-on:keyup.escape="isOpen = false"
+    >
+        {{ slots.close | raw }}
+        <Button
+            @html="closeText"
+            @if="not slots.close"
+            x-on:click="isOpen = false"
+            type="button"
+        />
+        <Children />
+    </div>
+</div>
+
+<Style>
+    .Drawer__Modal {
+        border-radius: var(--radius) var(--radius) 0 0;
+        transform: translateY(120%);
+    }
+
+    .Drawer__Modal[data-state="open"] {
+        box-shadow:
+            0.1px 0px 8.3px rgba(0, 0, 0, 0.02),
+            0.3px 0px 20px rgba(0, 0, 0, 0.028),
+            0.5px 0px 37.6px rgba(0, 0, 0, 0.035),
+            0.9px 0px 67px rgba(0, 0, 0, 0.042),
+            1.7px 0px 125.3px rgba(0, 0, 0, 0.05),
+            4px 0px 300px rgba(0, 0, 0, 0.07);
+        transform: translateY(0);
+    }
+
+    @media (min-width: theme('screens.md')) {
+        .Drawer__Modal {
+            border-radius: 0;
+            transform: translateY(0) translateX(120%);
+        }
+
+        .Drawer__Modal[data-state="open"] {
+            transform: translateY(0) translateX(0);
+        }
+    }
+</Style>

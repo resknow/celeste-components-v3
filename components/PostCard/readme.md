@@ -1,0 +1,1 @@
+You may use the `<PostCard.Placeholder />` component in situations where you have no content, such as in the Post Card block, if no post ID is set in the manual query type, we show this instead.

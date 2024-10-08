@@ -1,0 +1,66 @@
+{
+    "name": "carousel",
+    "title": "Carousel",
+    "description": "",
+    "category": "theme",
+    "version": "3.0.0",
+    "icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n    <g>\n        <path fill=\"none\" d=\"M0 0h24v24H0z\"\/>\n        <path d=\"M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM9 9v6h2V9H9zm4 0v6h2V9h-2z\"\/>\n    <\/g>\n<\/svg>\n",
+    "keywords": [],
+    "supports": {
+        "align": ["full"],
+        "jsx": true
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "allowedBlocks": ["acf/carousel-item"],
+    "fields": [
+        {
+            "label": "Slide Selectors",
+            "name": "slide_selectors",
+            "type": "select",
+            "instructions": "",
+            "choices": {
+				"none": "None",
+				"withArrows": "Arrows",
+                "withDots": "Dots"
+			},
+			"default_value": "3"
+        },
+        {
+            "label": "Autoplay",
+            "name": "autoplay",
+            "type": "true_false",
+            "default_value": false,
+            "ui": true
+        },
+        {
+            "label": "Autoplay Speed",
+            "instructions": "Time each slide should stay on screen, in seconds",
+            "name": "autoplay_speed",
+            "type": "number",
+            "default_value": 5
+        }
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderCallback": "render_acf_block"
+    },
+	"celeste": {
+		"requires": [
+			{
+				"type": "component",
+				"name": "Carousel",
+				"version": "3.0.0"
+			},
+			{
+				"type": "block",
+				"name": "carousel-item",
+				"version": "3.0.0"
+			}
+		]
+	}
+}

@@ -1,0 +1,62 @@
+<nav class="hidden lg:block">
+	<ul class="flex items-center gap-5" role="list">
+
+		{% for link in menu %}
+			<li
+				@if="not link.children"
+				class="relative"
+			>
+				<a
+					:class="{
+						'text-gray-700 flex items-center gap-1 text-sm no-underline uppercase': true,
+						'text-blue-600 font-bold': link.post_ID == get_the_ID(),
+					} | cls"
+					:href="link.url"
+				>
+					<span @html="link.title" />
+				</a>
+			</li>
+
+			<li
+				@if="link.children"
+				x-data="{ isOpen: false }"
+				class="relative"
+			>
+				<a
+					:class="{
+						'text-gray-700 flex items-center gap-1 text-sm no-underline uppercase': true,
+						'text-blue-600 font-bold': link.post_ID == get_the_ID(),
+					} | cls"
+					:href="link.url"
+					x-on:click.prevent="isOpen = !isOpen"
+				>
+					<span @html="link.title" />
+					<Icon name="caret-down" />
+				</a>
+
+				<div
+					@if="link.children"
+					x-cloak
+					x-show="isOpen"
+					x-transition.origin.top.left=""
+					x-on:click.outside="isOpen = false"
+					class="bg-white rounded-sm shadow-xl p-6 absolute -left-3 top-8 w-48 overflow-hidden z-40"
+				>
+					<ul class="flow flow-space-2" role="list">
+						<li @for="key, child in link.children" class="relative">
+							<a
+								:class="{
+									'text-gray-700 flex items-center gap-1 text-sm no-underline uppercase': true,
+									'text-blue-600 font-bold': child.post_ID == get_the_ID(),
+								} | cls"
+								:href="child.url"
+								@html="child.title"
+							/>
+						</li>
+					</ul>
+				</div>
+			</li>
+		{% endfor %}
+
+	</ul>
+</nav>

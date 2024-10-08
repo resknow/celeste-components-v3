@@ -1,0 +1,17 @@
+<article>
+	<ResponsiveImage
+		@if="post.featured_image"
+		class="aspect-square w-full object-cover object-center rounded-xs"
+		:image="post.featured_image"
+		:alt="post.featured_image.alt ? post.featured_image.alt : post.title ~ ' featured image'"
+	/>
+	<div class="mt-3">
+		<h2 class="h4" @html="post.title" />
+		<p class="text-xs text-gray-400" @html="post.date()" />
+		<p class="mt-2 text-gray-500 text-sm max-w-lg" @html="post.excerpt" />
+		<Button class="mt-4" variant="secondary" size="sm" :href="post.permalink">
+			<span aria-hidden="true">Read More</span>
+			<span class="sr-only">Read full post</span>
+		</Button>
+	</div>
+</article>

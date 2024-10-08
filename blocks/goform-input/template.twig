@@ -1,0 +1,44 @@
+<BlockWrapper :attrs="attributes" :block="block" :preview="is_preview">
+	<Input
+		@if="fields.type == 'textarea'"
+		:name="fields.name"
+		:label="fields.label"
+		:required="fields.required"
+		type="textarea"
+	/>
+	<Select
+		@if="fields.type == 'select'"
+		:name="fields.name"
+		:label="fields.label"
+		:required="fields.required"
+	>
+		<option
+			@for="choice in fields.choices"
+			:value="choice.value"
+			@html="choice.label"
+		/>
+	</Select>
+
+	{% if fields.type == "hidden" %}
+		<p
+			@if="is_preview"
+			class="border border-dashed rounded-xs py-1 px-3 text-gray-600 font-mono text-sm"
+		>
+			Hidden Input <code>`{{ fields.name }}`</code>
+		</p>
+		<input
+			type="hidden"
+			:name="fields.name"
+			:value="fields.value"
+			:required="fields.required"
+		/>
+	{% endif %}
+
+	<Input
+		@if="fields.type != 'textarea' and fields.type != 'select' and fields.type != 'hidden'"
+		:name="fields.name"
+		:label="fields.label"
+		:type="fields.type"
+		:required="fields.required"
+	/>
+</BlockWrapper>

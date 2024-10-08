@@ -1,0 +1,10 @@
+<BlockWrapper :attrs="attributes" :block="block">
+    <Carousel
+        :selectors="fields.slide_selectors"
+        :autoplay="fields.autoplay"
+        :autoplaySpeed="fields.autoplay_speed"
+        :preview="is_preview"
+    >
+        <InnerBlocks :template="template | raw" />
+    </Carousel>
+</BlockWrapper>

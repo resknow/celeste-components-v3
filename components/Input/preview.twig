@@ -1,0 +1,14 @@
+<form x-data="{ wordCount: 0 }" class="flow flow-space-xs">
+    <Input name="name" label="Your Name" required />
+    <div>
+        <Input
+            name="comment"
+            type="textarea"
+            label="Comment"
+            x-on:input="wordCount = $el.value.trim().split(' ').length"
+        />
+        <p class="text-gray-600 text-sm">
+            <span x-text="wordCount">0</span> words
+        </p>
+    </div>
+</form>

@@ -1,0 +1,22 @@
+<celeste-email-address @html="children | reverse" />
+
+<Style>
+    celeste-email-address {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+</Style>
+
+<Script>
+    class EmailAddress extends HTMLElement {
+        connectedCallback() {
+            this.addEventListener('copy', (event) => {
+                let unreversedEmail = document.getSelection().baseNode.data.split('').reverse().join('');
+                event.clipboardData.setData('text/plain', unreversedEmail);
+                event.preventDefault();
+            });
+        }
+    }
+
+    customElements.get('celeste-email-address') || customElements.define('celeste-email-address', EmailAddress);
+</Script>

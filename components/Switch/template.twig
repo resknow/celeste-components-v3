@@ -1,0 +1,28 @@
+<div
+    :class="['Switch', class] | cls"
+    :data-default-state="checked ? 'on' : 'off'"
+    x-data="{ checked: $el.dataset.defaultState === 'on', isReady: false }"
+    x-init="isReady = true"
+    x-on:click="checked = !checked; $dispatch('toggle-change', { checked: checked })"
+>
+    <button
+        :aria-controls="id | default(name)"
+        type="button"
+        class="hidden"
+        x-bind:class="{ 'flex bg-gray-100 rounded-full w-12 p-half cursor-pointer border': isReady, 'hidden': !isReady }"
+    >
+        <div
+            class="pointer-events-none rounded-full w-5 h-5 transition duration-150 ease-in-out transform"
+            x-bind:class="{ 'bg-secondary translate-x-5': checked, 'bg-gray-500': !checked }"
+        ></div>
+    </button>
+    <input
+        type="checkbox"
+        :name="name"
+        :id="id | default(name)"
+        @checked="checked"
+        @attributes
+        x-bind:class="{ 'hidden': isReady }"
+        x-model="checked"
+    />
+</div>

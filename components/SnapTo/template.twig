@@ -1,0 +1,14 @@
+<snap-to :class="['SnapTo', class] | cls">
+    <div data-content class="flex items-start gap-md">
+        <Children />
+    </div>
+    <div
+        @if="slots.actions"
+        :class="[
+            slots.actions ? 'hidden lg:flex' : 'hidden',
+            'flex-wrap items-center gap-xs px-container'
+        ] | cls"
+    >
+        {{ slots.actions | raw }}
+    </div>
+</snap-to>

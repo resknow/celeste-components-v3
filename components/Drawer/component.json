@@ -1,0 +1,12 @@
+{
+    "name": "Drawer",
+    "version": "3.0.0",
+    "celeste_version": "3.0.0",
+    "requires": [
+        {
+            "name": "Button",
+            "type": "component",
+            "version": "3.0.0"
+        }
+    ]
+}

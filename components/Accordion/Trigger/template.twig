@@ -1,0 +1,10 @@
+<Element :is="is" :class="['AccordionTrigger', class] | cls">
+    <button type="button" class="AccordionTrigger__button">
+        <span class="AccordionTrigger__content">
+            <Children />
+        </span>
+        <div class="AccordionTrigger__icon">
+            <Icon :name="icon" />
+        </div>
+    </button>
+</Element>

@@ -1,0 +1,10 @@
+<div class="flow flow-space-sm" x-data>
+    <h2>Checkbox</h2>
+    <Checkbox name="example" label="Signup for our newsletter" checked x-on:change="console.log($event.target.checked)" />
+
+    <h2 class="pt-md">Radio Buttons</h2>
+    <div class="flex items-center gap-xs flex-wrap">
+        <Checkbox type="radio" id="example-2-html" name="example-2" label="HTML" />
+        <Checkbox type="radio" id="example-2-css" name="example-2" label="CSS" />
+    </div>
+</div>

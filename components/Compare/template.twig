@@ -1,0 +1,29 @@
+<two-up :class="['Compare', class] | cls" :orientation="orientation" @attributes>
+    <Children />
+</two-up>
+
+<Style>
+    .Compare {
+        --track-color: var(--color-white);
+        --thumb-color: var(--color-gray-700);
+        --thumb-background: var(--color-white);
+        --thumb-size: var(--size-3xl);
+        --bar-size: var(--space-1);
+        --bar-touch-size: 30px;
+        overflow: clip;
+    }
+
+    .Compare [class*="styles_scrubber"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Compare > * {
+        width: 100%;
+    }
+</Style>
+
+<Script>
+    import TwoUp from 'two-up-element';
+</Script>

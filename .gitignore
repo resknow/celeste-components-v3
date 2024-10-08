@@ -1,0 +1,6 @@
+node_modules/
+vendor/
+blocks/component-preview/
+components/App/
+components/Sidebar/
+components/Code/

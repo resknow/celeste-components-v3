@@ -1,0 +1,13 @@
+<div
+    :class="['Marquee', class] | cls"
+    :data-pause-on-hover="pauseOnHover ? 'true' : 'false'"
+    @attributes
+>
+    <ul class="Marquee__content">
+        <Children />
+    </ul>
+
+    <ul class="Marquee__content" aria-hidden="true">
+        <Children />
+    </ul>
+</div>
