@@ -1,7 +1,6 @@
-<div
-    :class="['carousel-item grid h-full w-full col-start-1 row-start-1 transition duration-[1.5s]', class] | cls"
-    tabindex="-1"
+<li
+    :class="['splide__slide', class] | cls"
     :data-preview="preview ? 'true' : 'false'"
 >
     <Children />
-</div>
+</li>

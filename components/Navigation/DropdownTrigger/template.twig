@@ -1,0 +1,8 @@
+<button
+    type="button"
+    x-on:click="toggle()"
+    class="flex items-center gap-1 leading-none text-gray-800 text-sm font-bold no-underline hover:text-gray-950"
+>
+    <Children />
+    <Icon @if="icon_exists('caret-down')" name="caret-down" />
+</button>

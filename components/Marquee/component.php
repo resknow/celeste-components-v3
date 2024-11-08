@@ -31,3 +31,5 @@ Component::name( 'Marquee' )
         return $context;
     } )
     ->register();
+
+Component::name( 'Marquee.Item' )->register();

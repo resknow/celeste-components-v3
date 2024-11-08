@@ -4,13 +4,36 @@ use Twilight\Component;
 
 Component::name( 'Carousel' )
     ->schema( [
-        'class' => [ 'type' => 'string' ],
-        'preview' => [ 'type' => 'boolean', 'default' => false ],
-        'withDots' => [ 'type' => 'boolean', 'default' => false ],
-        'withArrows' => [ 'type' => 'boolean', 'default' => false ],
-        'autoplay' => [ 'type' => 'boolean', 'default' => false ],
-        'autoplaySpeed' => [ 'type' => 'number', 'default' => 5000 ],
+        'is' => [
+            'type' => 'string',
+            'default' => 'div'
+        ],
+        'id' => [
+            'type' => 'string',
+            'required' => true
+        ],
+        'class' => [
+            'type' => 'string'
+        ],
+        'preview' => [
+            'type' => 'boolean',
+            'default' => false
+        ],
+        'name' => [
+            'type' => 'string',
+            'required' => true
+        ],
+        'options' => [
+            'type' => 'array'
+        ],
     ] )
+    ->data( function( $context ) {
+        $context['options'] = isset( $context['options'] )
+            ? esc_attr( json_encode( $context['options'] ) )
+            : null;
+
+        return $context;
+    } )
     ->register();
 
 Component::name( 'Carousel.Item' )

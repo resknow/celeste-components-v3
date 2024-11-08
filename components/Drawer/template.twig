@@ -2,7 +2,7 @@
     :x-data="state({ isOpen: isOpen ? 'true' : 'false' })"
     class="Drawer"
 >
-    {{ slots.trigger | raw }}
+    <Children slot="trigger" />
     <Button
         @html="toggleText"
         @if="not slots.trigger"
@@ -22,7 +22,7 @@
         x-bind:data-state="isOpen ? 'open' : 'closed'"
         x-on:keyup.escape="isOpen = false"
     >
-        {{ slots.close | raw }}
+        <Children slot="close" />
         <Button
             @html="closeText"
             @if="not slots.close"

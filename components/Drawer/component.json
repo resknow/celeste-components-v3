@@ -1,6 +1,7 @@
 {
     "name": "Drawer",
     "version": "3.0.0",
+    "category": "UI",
     "celeste_version": "3.0.0",
     "requires": [
         {

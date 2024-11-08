@@ -19,6 +19,12 @@
     "allowedBlocks": ["acf/carousel-item"],
     "fields": [
         {
+            "label": "Unique Name",
+            "name": "name",
+            "type": "text",
+            "default_value": "carousel"
+        },
+        {
             "label": "Slide Selectors",
             "name": "slide_selectors",
             "type": "select",

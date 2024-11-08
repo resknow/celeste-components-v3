@@ -1,0 +1,55 @@
+<li
+    x-data="navigationDropdown"
+    :class="['Navigation__Link Navigation__Dropdown relative', class] | cls"
+    @attributes
+>
+    <Children slot="trigger" />
+    <ul
+        :class="[
+            'absolute -right-sm top-md bg-white border border-gray-300/60 rounded-xs shadow-xl py-sm min-w-64',
+            '[&_a:hover]:bg-gray-100 [&_a]:py-2 [&_a]:px-md',
+            '[&_a]:grid [&_a]:grid-cols-[var(--space-5)_1fr] [&_a]:gap-x-2',
+            '[&_svg]:size-5',
+            '[&_a:not(:has(svg))_:first-child]:col-start-2',
+        ] | cls"
+        x-show="state === states.OPEN"
+        x-transition.origin.top.right
+        x-on:click.away="close()"
+        x-bind:aria-hidden="state === states.CLOSED"
+    >
+        <Children />
+    </ul>
+</li>
+
+<Script>
+    document.addEventListener( 'alpine:init', () => {
+        Alpine.data( 'navigationDropdown', () => ({
+            states: {
+                OPEN: 'open',
+                CLOSED: 'closed',
+            },
+            state: 'closed',
+            toggle() {
+                this.state = this.state === this.states.OPEN ? this.states.CLOSED : this.states.OPEN;
+                this.$dispatch( 'navigation-dropdown-toggle', {
+                    element: this.$el,
+                    state: this.state
+                } );
+            },
+            open() {
+                this.state = this.states.OPEN;
+                this.$dispatch( 'navigation-dropdown-open', {
+                    element: this.$el,
+                    state: this.state
+                } );
+            },
+            close() {
+                this.state = this.states.CLOSED;
+                this.$dispatch( 'navigation-dropdown-close', {
+                    element: this.$el,
+                    state: this.state
+                } );
+            },
+        }) );
+    } );
+</Script>

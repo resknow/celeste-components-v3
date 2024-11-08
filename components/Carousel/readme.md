@@ -1,3 +1,11 @@
+## External Dependencies
+
+This component requires `splidejs`, install it via NPM:
+
+```bash
+npm install @splidejs/splide
+```
+
 ## Properties
 
 | Prop | Description |

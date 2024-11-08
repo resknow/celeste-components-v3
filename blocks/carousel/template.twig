@@ -1,10 +1,13 @@
 <BlockWrapper :attrs="attributes" :block="block">
-    <Carousel
-        :selectors="fields.slide_selectors"
-        :autoplay="fields.autoplay"
-        :autoplaySpeed="fields.autoplay_speed"
-        :preview="is_preview"
-    >
+    {% set innerBlocks %}
         <InnerBlocks :template="template | raw" />
+    {% endset %}
+
+    <Carousel @unless="is_preview" :name="fields.name">
+        {{ innerBlocks }}
     </Carousel>
+
+    {% if is_preview %}
+        {{ innerBlocks }}
+    {% endif %}
 </BlockWrapper>
