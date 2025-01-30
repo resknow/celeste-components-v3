@@ -1,0 +1,12 @@
+<fieldset :class="['CheckboxGroup flow flow-space-xs', class] | cls">
+    <legend>{{ label }}</legend>
+    <div class="flow flow-space-1">
+        <Children />
+    </div>
+</fieldset>
+
+<Style>
+    .CheckboxGroup label {
+        font-weight: var(--weight-normal);
+    }
+</Style>

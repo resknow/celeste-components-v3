@@ -1,4 +1,7 @@
-<div x-data="{ notifications: 'off' }" class="flex flex-wrap gap-xs items-center">
-    <Switch name="notifications" x-on:toggle-change.window="notifications = $event.detail.checked ? 'on' : 'off'" />
-    <span x-text="notifications" class="uppercase text-sm font-bold"></span>
+<div
+    x-data="{ notifications: false }"
+    class="flex flex-wrap gap-xs items-center"
+>
+    <Switch name="notifications" x-model="notifications" />
+    <span x-text="notifications ? 'On' : 'Off'" class="uppercase text-sm font-bold" />
 </div>

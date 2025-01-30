@@ -1,0 +1,11 @@
+<nav :class="['flex justify-between', class] | cls" aria-label="breadcrumbs">
+    <ol
+        :class="[
+            'inline-flex items-center gap-x-1 gap-y-xs text-xs text-gray-500',
+            '[&_.is-active]:text-gray-600 [&_.is-active]:font-medium'
+        ] | cls"
+        role="list"
+    >
+        <Children />
+    </ol>
+</nav>

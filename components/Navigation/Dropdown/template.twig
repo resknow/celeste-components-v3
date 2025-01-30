@@ -6,8 +6,9 @@
     <Children slot="trigger" />
     <ul
         :class="[
-            'absolute -right-sm top-md bg-white border border-gray-300/60 rounded-xs shadow-xl py-sm min-w-64',
-            '[&_a:hover]:bg-gray-100 [&_a]:py-2 [&_a]:px-md',
+            'absolute -right-sm top-md rounded-xs shadow-xl py-sm min-w-64 border',
+            'bg-white border-gray-300/60 [&_a:hover]:bg-gray-100',
+            '[&_a]:py-2 [&_a]:px-md',
             '[&_a]:grid [&_a]:grid-cols-[var(--space-5)_1fr] [&_a]:gap-x-2',
             '[&_svg]:size-5',
             '[&_a:not(:has(svg))_:first-child]:col-start-2',

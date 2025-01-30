@@ -21,3 +21,10 @@ Component::name( 'Navigation.Dropdown' )
 		'class' => [ 'type' => 'string' ],
 	] )
 	->register();
+
+Component::name( 'Navigation.DropdownTrigger' )
+	->schema( [
+		'class' => [ 'type' => 'string' ],
+		'icon' => [ 'type' => 'string', 'default' => 'caret-down' ],
+	] )
+	->register();
